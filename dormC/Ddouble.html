@@ -19,13 +19,13 @@
                     src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_l.png"
                     onclick="next()" style="display : none" usemap="#image-map">
                 <map name="image-map">
-                    <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly">
+                    <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly" onclick="open()">
                 </map>
 
                 <div id="popup">
                     <div id="popupitem"> </div>
 
-                    <button type="button" ng-click="ok()">확인</button>
+                    <button type="button" onclick="open()">확인</button>
                 </div>
                 <img class="right"
                     src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_r.png"
@@ -37,6 +37,18 @@
 
         <script>
             let now = "one"
+            let popopen = false
+
+            function open(){
+                if (popopen == false) {
+                    $('#popup').css("visibility", "visible")
+                    popopen = true
+                }
+                else {
+                    $('#popup').css("visibility", "hidden")
+                    popopen = false
+                }
+            }
 
             function next() {
                 if (now == "one") {
@@ -103,6 +115,7 @@
             }
 
             #popup {
+                visibility: hidden;
                 margin: 0 auto;
                 padding: 17.5px;
                 width: 470px;
