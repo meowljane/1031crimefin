@@ -15,50 +15,52 @@
 
 
             <div class="단서">
-                <img class="left"
-                    src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_l.png"
-                    onclick="next()" style="display : none" usemap="#image-map">
+                <img src="./01.png" usemap="#image-map" style="position: absolute;" class="imgchn">
+
                 <map name="image-map">
-                    <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly" onclick="open()">
+                    <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly"
+                        class="openbtn" >
                 </map>
 
-                <div id="popup">
-                    <div id="popupitem"> </div>
+                <img class="left"
+                    src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_l.png"
+                    onclick="next()">
 
-                    <button type="button" onclick="open()">확인</button>
-                </div>
+
+
                 <img class="right"
                     src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_r.png"
                     onclick="next()">
             </div>
+            <div id="popup">
+                <div id="popupitem"> </div>
 
+                <button type="button" class="closebtn" onclick="close()">확인</button>
+            </div>
 
         </div>
 
         <script>
             let now = "one"
-            let popopen = false
 
-            function open(){
-                if (popopen == false) {
-                    $('#popup').css("visibility", "visible")
-                    popopen = true
-                }
-                else {
-                    $('#popup').css("visibility", "hidden")
-                    popopen = false
-                }
-            }
+            $(".openbtn").click(function () {
+                $('#popup').css("visibility", "visible");
+            });
+
+            $(".closebtn").click(function () {
+                $('#popup').css("visibility", "hidden");
+            });
+
 
             function next() {
                 if (now == "one") {
-                    $('.단서').css("background-image", "url('./02.png')")
+                    $('.imgchn').attr("src", "./02.png")
                     now = "two"
                     $('.left').css("display", "block");
                     $('.right').css("display", "none");
                 }
                 else {
-                    $('.단서').css("background-image", "url('./01.png')")
+                    $('.imgchn').attr("src", "./01.png")
                     now = "one"
                     $('.right').css("display", "block");
                     $('.left').css("display", "none");
@@ -68,15 +70,18 @@
 
         <style>
             .left {
+                display: none;
                 left: 0px;
                 position: absolute;
                 cursor: pointer;
+                z-index: 5;
             }
 
             .right {
                 right: 0px;
                 position: absolute;
                 cursor: pointer;
+                z-index: 5;
             }
 
             .단서 {
@@ -115,6 +120,7 @@
             }
 
             #popup {
+                top: -568px;
                 visibility: hidden;
                 margin: 0 auto;
                 padding: 17.5px;
