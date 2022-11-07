@@ -22,7 +22,11 @@
                     <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly">
                 </map>
 
-                <div id="popup"> <div id="popupitem"> </div> </div>
+                <div id="popup">
+                    <div id="popupitem"> </div>
+
+                    <button type="button" ng-click="ok()">확인</button>
+                </div>
                 <img class="right"
                     src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_r.png"
                     onclick="next()">
@@ -99,6 +103,7 @@
             }
 
             #popup {
+                padding: 17.5px;
                 width: 470px;
                 height: 587px;
                 position: relative;
@@ -112,9 +117,32 @@
 
             #popupitem {
                 background-image: url('https://media.discordapp.net/attachments/1035418797215076422/1039128557953232966/2.png');
-                height: 560px;
-                width: 560px;
+                height: 500px;
+                width: 435px;
                 position: relative;
+            }
+
+            button {
+                border-radius: 8px;
+                min-width: 120px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+                font-weight: 500;
+                color: #fff !important;
+                background-color: #6758FF;
+                border-color: #6758FF;
+                padding: 6px 12px;
+                margin-bottom: 0;
+                font-size: 14px;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;
+                margin: 0 auto;
+                margin-top: 17px;
             }
         </style>
 
