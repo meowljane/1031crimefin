@@ -45,10 +45,12 @@
 
             $(".openbtn").click(function () {
                 $('#popup').css("visibility", "visible");
+                $(".imgchn").css("filter", "brightness(40%)");
             });
 
             $(".closebtn").click(function () {
                 $('#popup').css("visibility", "hidden");
+                $(".imgchn").css("filter", "brightness(100%)");
             });
 
 
@@ -163,6 +165,10 @@
                 cursor: pointer;
                 margin: 0 auto;
                 margin-top: 17px;
+            }
+            
+            .openbtn{    
+                cursor: zoom-in;
             }
         </style>
 
