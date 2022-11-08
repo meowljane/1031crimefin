@@ -19,7 +19,7 @@
 
                 <map name="image-map">
                     <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly"
-                        class="openbtn onoff" >
+                        class="openbtn onoff">
                 </map>
 
                 <img class="left"
@@ -28,31 +28,36 @@
 
 
 
-                <img class="right"
+                <img class="dir right"
                     src="https://raw.githubusercontent.com/meowljane/0928crime/main/resource/prov/bt_r.png"
                     onclick="next()">
             </div>
 
 
         </div>
-        
-                    <div id="popup">
-                <div id="popupitem"> </div>
 
-                <button type="button" class="closebtn" onclick="close()">확인</button>
-            </div>
+        <div id="popup">
+            <div id="popupitem"> </div>
+
+            <button type="button" class="closebtn" onclick="close()">확인</button>
+        </div>
 
         <script>
             let now = "one"
+            $(document).keyup(function (e) {
+                if (e.which == 27) $(".closebtn").click();
+            });
 
             $(".openbtn").click(function () {
                 $('#popup').css("visibility", "visible");
                 $(".modal-content").css("filter", "brightness(40%)");
+                $('.dir').removeClass('right');
             });
 
             $(".closebtn").click(function () {
                 $('#popup').css("visibility", "hidden");
                 $(".modal-content").css("filter", "brightness(100%)");
+                $('.dir').addClass('right');
             });
 
 
@@ -63,6 +68,7 @@
                     $('.left').css("display", "block");
                     $('.right').css("display", "none");
                     $('.onoff').removeClass('openbtn');
+
                 }
                 else {
                     $('.imgchn').attr("src", "./01.png")
@@ -70,6 +76,7 @@
                     $('.right').css("display", "block");
                     $('.left').css("display", "none");
                     $('.onoff').addClass('openbtn');
+
                 }
             }
         </script>
@@ -126,8 +133,8 @@
             }
 
             #popup {
-    left: 53px;
-    top: 17.5px;
+                left: 53px;
+                top: 17.5px;
                 visibility: hidden;
                 padding: 17.5px;
                 width: 470px;
@@ -170,9 +177,9 @@
                 margin: 0 auto;
                 margin-top: 17px;
             }
-            
-            .openbtn{    
-                cursor:url('./돋보기커서.png'), auto;
+
+            .openbtn {
+                cursor: url('./돋보기커서.png'), auto;
             }
         </style>
 
