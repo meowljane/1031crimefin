@@ -19,7 +19,7 @@
 
                 <map name="image-map">
                     <area coords="264,265,260,279,268,282,272,287,284,280,288,275,295,277,308,271,296,251" shape="poly"
-                        class="openbtn" >
+                        class="openbtn onoff" >
                 </map>
 
                 <img class="left"
@@ -50,7 +50,7 @@
 
             $(".closebtn").click(function () {
                 $('#popup').css("visibility", "hidden");
-                $(".단서").css("filter", "brightness(100%)");
+                $(".modal-content").css("filter", "brightness(100%)");
             });
 
 
@@ -60,12 +60,14 @@
                     now = "two"
                     $('.left').css("display", "block");
                     $('.right').css("display", "none");
+                    $('.onoff').removeClass('openbtn');
                 }
                 else {
                     $('.imgchn').attr("src", "./01.png")
                     now = "one"
                     $('.right').css("display", "block");
                     $('.left').css("display", "none");
+                    $('.onoff').addClass('openbtn');
                 }
             }
         </script>
@@ -122,7 +124,7 @@
             }
 
             #popup {
-                top: -568px;
+                top: -550.5px;
                 visibility: hidden;
                 margin: 0 auto;
                 padding: 17.5px;
