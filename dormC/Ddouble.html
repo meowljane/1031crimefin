@@ -51,13 +51,13 @@
             $(".openbtn").click(function () {
                 $('#popup').css("visibility", "visible");
                 $(".modal-content").css("filter", "brightness(40%)");
-                $('.dir').removeClass('right');
+                $('.dir').attr('onclick','null()');
             });
 
             $(".closebtn").click(function () {
                 $('#popup').css("visibility", "hidden");
                 $(".modal-content").css("filter", "brightness(100%)");
-                $('.dir').addClass('right');
+                $('.dir').attr('onclick','next()');
             });
 
 
