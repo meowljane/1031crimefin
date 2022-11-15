@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <style>
+        .background {
+            background-image: url('./bg.png');
+            width: 1100px;
+            height: 620px;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            filter: brightness(0);
+            animation: backgroundfade 0.2s 0.4s forwards
+        }
+
+        @keyframes backgroundfade {
+            0% {
+                filter: brightness(0);
+            }
+
+            100% {
+                filter: brightness(1);
+            }
+        }
+
+        .vid {
+            opacity: 0.3;
+            position: absolute;
+            left: -124px;
+            top: -95px;
+        }
+
+        .window {
+            background-image: url('./cha_bg.png');
+            width: 422px;
+            height: 717px;
+            position: relative;
+            left: -410px;
+            top: -52px;
+            animation: bouncewindow 0.8s 0.2s forwards ease-out
+        }
+
+        @keyframes bouncewindow {
+            0% {
+                left: -410px;
+                top: -52px;
+            }
+
+            65% {
+                left: 7px;
+                top: -52px;
+            }
+
+            100% {
+                left: -34px;
+                top: -52px;
+            }
+        }
+
+        .char {
+            background-image: url('./cha.png');
+            width: 253px;
+            height: 603px;
+            position: absolute;
+            left: -266px;
+            top: 51px;
+            animation: bouncechar 0.8s 0.5s forwards ease-out;
+            z-index: 5;
+        }
+
+        @keyframes bouncechar {
+            10% {
+                left: -266px;
+                top: 51px;
+            }
+
+            65% {
+                left: 40px;
+                top: 51px;
+            }
+
+            100% {
+                left: -13px;
+                top: 51px;
+            }
+        }
+
+        .uprope {
+            background-image: url('./police2.png');
+            width: 475px;
+            height: 225px;
+            position: absolute;
+            left: -266px;
+            top: 51px;
+            animation: bounceup 0.8s 0.1s forwards ease-out
+        }
+
+        @keyframes bounceup {
+            0% {
+                left: -483px;
+                top: 105px;
+            }
+
+            100% {
+                left: -100px;
+                top: -64px;
+            }
+        }
+
+        .downrope {
+            background-image: url('./plice1.png');
+            width: 546px;
+            height: 233px;
+            position: absolute;
+            left: -555px;
+            top: 271px;
+            animation: bouncedown 0.4s 0.8s forwards ease-out;
+            z-index: 6;
+        }
+
+        @keyframes bouncedown {
+            0% {
+                left: -555px;
+                top: 271px;
+            }
+
+            100% {
+                left: -59px;
+                top: 457px;
+            }
+        }
+
+
+        .menu {
+            background-image: url('./menu.png');
+            width: 264px;
+            height: 313px;
+            position: absolute;
+            left: 1062px;
+            top: 487px;
+            animation: bouncemenu 0.5s 0.8s forwards ease-out;
+            z-index: 5;
+        }
+
+        @keyframes bouncemenu {
+            20% {
+                left: 1062px;
+                top: 487px;
+            }
+
+            60% {
+                left: 844px;
+                top: 326px;
+            }
+
+            100% {
+                left: 868px;
+                top: 367px;
+            }
+        }
+
+        #line {
+            position: absolute;
+            left: 976px;
+            top: 459px;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        #check {
+            position: absolute;
+            left: 959px;
+            top: 417px;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        #ui1 {
+            background-image: url('./story.png');
+            width: 506px;
+            height: 614px;
+            position: absolute;
+            left: 390px;
+            top: -616px;
+            z-index: 5;
+        }
+
+        .ui1start{
+        animation: istart 0.8s forwards ease-out;
+        }
+
+        @keyframes istart {
+            10% {
+                left: 390px;
+                top: -616px;
+            }
+
+            65% {
+                left: 390px;
+                top: -11px;
+            }
+
+            100% {
+                left: 390px;
+                top: -78px;
+            }
+        }
+
+        .ui1end{
+        animation: iend 0.4s forwards ease-out;
+        }
+
+        @keyframes iend {
+            10% {
+                left: 390px;
+                top: -78px;
+                
+            }
+
+            45% {
+                left: 390px;
+                top: -11px;
+            }
+
+            100% {
+                left: 390px;
+                top: -616px;
+            }
+        }
+
+        #ui2 {
+            background-image: url('./introduce.png');
+            w2idth: 707px;
+            height: 586px;
+            position: absolute;
+            left: 390px;
+            top: -616px;
+            z-index: 5;
+        }
+
+        .ui2start{
+        animation: iistart 0.8s forwards ease-out;
+        }
+
+        @keyframes iistart {
+            10% {
+                left: 390px;
+                top: -616px;
+            }
+
+            65% {
+                left: 390px;
+                top: -11px;
+            }
+
+            100% {
+                left: 390px;
+                top: -78px;
+            }
+        }
+
+        .ui2end{
+        animation: iend 0.4s forwards ease-out;
+        }
+
+        @keyframes iiend {
+            10% {
+                left: 390px;
+                top: -78px;
+                
+            }
+
+            45% {
+                left: 390px;
+                top: -11px;
+            }
+
+            100% {
+                left: 390px;
+                top: -616px;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="window"></div>
+        <div class="char"></div>
+        <div class="uprope"></div>
+        <div class="downrope"></div>
+        <img class="menu" src="./menu.png" usemap="#image-map">
+        <map name="image-map">
+            <area id="R" onmouseover="hover(id)" onclick="openui(id)"
+                coords="122,57,112,67,112,79,117,89,127,93,137,90,148,92,152,98,162,88,166,68,151,65,142,64,132,59"
+                shape="poly">
+            <area id="I" onmouseover="hover(id)" onclick="openui(id)" coords="106,108,204,123,199,152,102,134"
+                shape="poly">
+            <area id="A" onmouseover="hover(id)" onclick="openui(id)" coords="100,152,98,181,194,197,200,169"
+                shape="poly">
+            <area id="K" onmouseover="hover(id)" onclick="openui(id)" coords="94,200,87,226,229,252,232,221"
+                shape="poly">
+        </map>
+        <img id="line" src="./line.png">
+        <img id="check" src="./v.png">
+        <div id="ui1"></div>
+        <div id="ui2"></div>
+        <div id="ui3"></div>
+
+
+    </div>
+</body>
+
+
+<script>
+
+    function hover(id) {
+        const redline = document.getElementById("line");
+        redline.style.opacity = 1;
+        if (id == "R") {
+            redline.style.left = '976px';
+            redline.style.top = '459px';
+        }
+        if (id == "I") {
+            redline.style.left = '968px';
+            redline.style.top = '507px';
+        }
+        if (id == "A") {
+            redline.style.left = '962px';
+            redline.style.top = '552px';
+        }
+        if (id == "K") {
+            redline.style.left = '954px';
+            redline.style.top = '601px';
+        }
+        else { return 0; }
+    }
+
+    _openedui1=false
+    function openui(id) {
+        const redcheck = document.getElementById("check");
+        redcheck.style.opacity = 1;
+        if (id == "R"&&_openedui1==false) {
+            redcheck.style.left = '959px';
+            redcheck.style.top = '417px';
+            document.getElementById("ui1").classList.remove("ui1end");
+            document.getElementById("ui1").classList.add("ui1start");
+            _openedui1=true
+        }
+        else if (_openedui1==true) {
+            
+            document.getElementById("ui1").classList.remove("ui1start");
+            document.getElementById("ui1").classList.add("ui1end");
+            _openedui1=false
+        }
+
+        if (id == "I") {
+            redcheck.style.left = '949px';
+            redcheck.style.top = '465px';
+            _openedui2==true
+        }
+        if (id == "A") {
+            redcheck.style.left = '940px';
+            redcheck.style.top = '511px';
+            _openedui3==true
+        }
+        if (id == "K") {
+            redcheck.style.left = '931px';
+            redcheck.style.top = '557px';
+            _openedui4==true
+        }
+        else { return 0; }
+    }
+</script>
+
+</html>
