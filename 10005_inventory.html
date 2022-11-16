@@ -143,17 +143,17 @@
             position: absolute;
             left: 1062px;
             top: 487px;
-            animation: bouncemenu 0.5s 0.8s forwards ease-out;
+            animation: bouncemenu 0.45s 0.6s forwards ease-out;
             z-index: 5;
         }
 
         @keyframes bouncemenu {
-            20% {
+            0% {
                 left: 1062px;
                 top: 487px;
             }
 
-            60% {
+            50% {
                 left: 844px;
                 top: 326px;
             }
@@ -190,8 +190,8 @@
             z-index: 5;
         }
 
-        .ui1start{
-        animation: istart 0.8s forwards ease-out;
+        .ui1start {
+            animation: istart 0.4s 0.2s forwards ease-out;
         }
 
         @keyframes istart {
@@ -211,15 +211,15 @@
             }
         }
 
-        .ui1end{
-        animation: iend 0.4s forwards ease-out;
+        .ui1end {
+            animation: iend 0.2s forwards ease-out;
         }
 
         @keyframes iend {
             10% {
                 left: 390px;
                 top: -78px;
-                
+
             }
 
             45% {
@@ -235,58 +235,106 @@
 
         #ui2 {
             background-image: url('./introduce.png');
-            w2idth: 707px;
+            width: 707px;
             height: 586px;
             position: absolute;
-            left: 390px;
-            top: -616px;
+            left: 219px;
+            top: 28px;
             z-index: 5;
+            transform: scale(0);
         }
 
-        .ui2start{
-        animation: iistart 0.8s forwards ease-out;
+        .ui2start {
+            animation: iistart 0.4s 0.2s forwards ease-out;
         }
 
         @keyframes iistart {
-            10% {
-                left: 390px;
-                top: -616px;
+            0% {
+                transform: scale(0);
             }
 
             65% {
-                left: 390px;
-                top: -11px;
+                transform: scale(1.25);
             }
 
             100% {
-                left: 390px;
-                top: -78px;
+                transform: scale(1);
             }
         }
 
-        .ui2end{
-        animation: iend 0.4s forwards ease-out;
+        .ui2end {
+            animation: iiend 0.2s forwards ease-out;
         }
 
         @keyframes iiend {
-            10% {
-                left: 390px;
-                top: -78px;
-                
+            0% {
+                transform: scale(1);
+
             }
 
-            45% {
-                left: 390px;
-                top: -11px;
+            35% {
+                transform: scale(1.25);
             }
 
             100% {
-                left: 390px;
-                top: -616px;
+                transform: scale(0);
             }
         }
 
+        #ui3 {
+            background-image: url('./alibi.png');
+            width: 606px;
+            height: 656px;
+            position: absolute;
+            left: 422px;
+            top: 617px;
+            z-index: 5;
+        }
 
+
+        .ui3start {
+            animation: iiistart 0.4s 0.2s forwards ease-out;
+        }
+
+        @keyframes iiistart {
+            0% {
+                left: 422px;
+                top: 617px;
+
+            }
+
+            65% {
+                left: 321px;
+                top: -7px;
+            }
+
+            100% {
+                left: 333px;
+                top: 50px;
+            }
+        }
+
+        .ui3end {
+            animation: iiiend 0.2s forwards ease-out;
+        }
+
+        @keyframes iiiend {
+            0% {
+                left: 333px;
+                top: 50px;
+
+            }
+
+            45% {
+                left: 321px;
+                top: -7px;
+            }
+
+            100% {
+                left: 422px;
+                top: 617px;
+            }
+        }
     </style>
 </head>
 
@@ -316,6 +364,12 @@
 
 
     </div>
+
+    <!----
+        <video class="vid" muted autoplay loop>
+        <source src="./how.mp4" type="video/mp4">>
+    </video>
+        --->
 </body>
 
 
@@ -343,38 +397,63 @@
         else { return 0; }
     }
 
-    _openedui1=false
+    _openedui1 = false
+    _openedui2 = false
+    _openedui3 = false
     function openui(id) {
         const redcheck = document.getElementById("check");
-        redcheck.style.opacity = 1;
-        if (id == "R"&&_openedui1==false) {
+
+        if (id == "R" && _openedui1 == false) {
+            redcheck.style.opacity = 1;
             redcheck.style.left = '959px';
             redcheck.style.top = '417px';
             document.getElementById("ui1").classList.remove("ui1end");
             document.getElementById("ui1").classList.add("ui1start");
-            _openedui1=true
+            _openedui1 = true
         }
-        else if (_openedui1==true) {
-            
+        else if (_openedui1 == true) {
+            redcheck.style.opacity = 0;
             document.getElementById("ui1").classList.remove("ui1start");
             document.getElementById("ui1").classList.add("ui1end");
-            _openedui1=false
+            _openedui1 = false
         }
 
-        if (id == "I") {
+        if (id == "I" && _openedui2 == false) {
             redcheck.style.left = '949px';
             redcheck.style.top = '465px';
-            _openedui2==true
+            redcheck.style.opacity = 1;
+            document.getElementById("ui2").classList.remove("ui2end");
+            document.getElementById("ui2").classList.add("ui2start");
+            _openedui2 = true
         }
-        if (id == "A") {
+
+        else if (_openedui2 == true) {
+            redcheck.style.opacity = 0;
+            document.getElementById("ui2").classList.remove("ui2start");
+            document.getElementById("ui2").classList.add("ui2end");
+            _openedui2 = false
+        }
+
+        if (id == "A" && _openedui3 == false) {
             redcheck.style.left = '940px';
             redcheck.style.top = '511px';
-            _openedui3==true
+            redcheck.style.opacity = 1;
+            document.getElementById("ui3").classList.remove("ui3end");
+            document.getElementById("ui3").classList.add("ui3start");
+            _openedui3 = true
         }
+
+        else if (_openedui3 == true) {
+            redcheck.style.opacity = 0;
+            document.getElementById("ui3").classList.remove("ui3start");
+            document.getElementById("ui3").classList.add("ui3end");
+            _openedui3 = false
+        }
+
         if (id == "K") {
             redcheck.style.left = '931px';
             redcheck.style.top = '557px';
-            _openedui4==true
+            _openedui4 == true
         }
         else { return 0; }
     }
