@@ -287,7 +287,7 @@
             height: 656px;
             position: absolute;
             left: 422px;
-            top: 617px;
+            top: 630px;
             z-index: 5;
         }
 
@@ -299,7 +299,7 @@
         @keyframes iiistart {
             0% {
                 left: 422px;
-                top: 617px;
+                top: 630px;
 
             }
 
@@ -332,7 +332,7 @@
 
             100% {
                 left: 422px;
-                top: 617px;
+                top: 630px;
             }
         }
     </style>
@@ -410,6 +410,8 @@
             document.getElementById("ui1").classList.remove("ui1end");
             document.getElementById("ui1").classList.add("ui1start");
             _openedui1 = true
+            _openedui2 = false
+            _openedui3 = false
         }
         else if (_openedui1 == true) {
             redcheck.style.opacity = 0;
@@ -425,6 +427,8 @@
             document.getElementById("ui2").classList.remove("ui2end");
             document.getElementById("ui2").classList.add("ui2start");
             _openedui2 = true
+            _openedui3 = false
+            _openedui1 = false
         }
 
         else if (_openedui2 == true) {
@@ -441,6 +445,8 @@
             document.getElementById("ui3").classList.remove("ui3end");
             document.getElementById("ui3").classList.add("ui3start");
             _openedui3 = true
+            _openedui2 = false
+            _openedui1 = false
         }
 
         else if (_openedui3 == true) {
