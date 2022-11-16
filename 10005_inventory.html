@@ -332,7 +332,7 @@
 
             100% {
                 left: 422px;
-                top: 630px;
+                top: 620px;
             }
         }
     </style>
@@ -400,21 +400,24 @@
     _openedui1 = false
     _openedui2 = false
     _openedui3 = false
+    _checknow=0
     function openui(id) {
         const redcheck = document.getElementById("check");
-
-        if (id == "R" && _openedui1 == false) {
+        if (redcheck.style.opacity==0){
             redcheck.style.opacity = 1;
+        }
+        else if (_checknow==1&&id == "R" || _checknow==2&&id == "I" || _checknow==3&&id == "A"){
+            redcheck.style.opacity = 0;
+        }
+        if (id == "R" && _openedui1 == false) {
             redcheck.style.left = '959px';
             redcheck.style.top = '417px';
             document.getElementById("ui1").classList.remove("ui1end");
             document.getElementById("ui1").classList.add("ui1start");
             _openedui1 = true
-            _openedui2 = false
-            _openedui3 = false
+            _checknow=1
         }
         else if (_openedui1 == true) {
-            redcheck.style.opacity = 0;
             document.getElementById("ui1").classList.remove("ui1start");
             document.getElementById("ui1").classList.add("ui1end");
             _openedui1 = false
@@ -423,16 +426,13 @@
         if (id == "I" && _openedui2 == false) {
             redcheck.style.left = '949px';
             redcheck.style.top = '465px';
-            redcheck.style.opacity = 1;
             document.getElementById("ui2").classList.remove("ui2end");
             document.getElementById("ui2").classList.add("ui2start");
             _openedui2 = true
-            _openedui3 = false
-            _openedui1 = false
+            _checknow=2
         }
 
         else if (_openedui2 == true) {
-            redcheck.style.opacity = 0;
             document.getElementById("ui2").classList.remove("ui2start");
             document.getElementById("ui2").classList.add("ui2end");
             _openedui2 = false
@@ -441,16 +441,13 @@
         if (id == "A" && _openedui3 == false) {
             redcheck.style.left = '940px';
             redcheck.style.top = '511px';
-            redcheck.style.opacity = 1;
             document.getElementById("ui3").classList.remove("ui3end");
             document.getElementById("ui3").classList.add("ui3start");
             _openedui3 = true
-            _openedui2 = false
-            _openedui1 = false
+            _checknow=3
         }
 
         else if (_openedui3 == true) {
-            redcheck.style.opacity = 0;
             document.getElementById("ui3").classList.remove("ui3start");
             document.getElementById("ui3").classList.add("ui3end");
             _openedui3 = false
