@@ -335,6 +335,22 @@
                 top: 620px;
             }
         }
+
+        .button:active{ animation: popup 0.4s ease forwards;}
+        @keyframes popup {
+            0% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+}
+
     </style>
 </head>
 
@@ -344,18 +360,14 @@
         <div class="char"></div>
         <div class="uprope"></div>
         <div class="downrope"></div>
-        <img class="menu" src="./menu.png" usemap="#image-map">
-        <map name="image-map">
-            <area id="R" onmouseover="hover(id)" onclick="openui(id)"
-                coords="122,57,112,67,112,79,117,89,127,93,137,90,148,92,152,98,162,88,166,68,151,65,142,64,132,59"
-                shape="poly">
-            <area id="I" onmouseover="hover(id)" onclick="openui(id)" coords="106,108,204,123,199,152,102,134"
-                shape="poly">
-            <area id="A" onmouseover="hover(id)" onclick="openui(id)" coords="100,152,98,181,194,197,200,169"
-                shape="poly">
-            <area id="K" onmouseover="hover(id)" onclick="openui(id)" coords="94,200,87,226,229,252,232,221"
-                shape="poly">
-        </map>
+
+        <div class="menu" usemap="#image-map">
+            <img class="button" id="R" onmouseover="hover(id)" onclick="openui(id)" src="./Untitled-1_01.gif" style="position: relative; top: 61px; left: 96px;">
+            <img class="button" id="I" onmouseover="hover(id)" onclick="openui(id)" src="./Untitled-1_02.gif" style="position: relative; top: 58px; left: 96px;">
+            <img class="button" id="A" onmouseover="hover(id)" onclick="openui(id)" src="./Untitled-1_03.gif" style="position: relative; top: 54px; left: 96px;">
+            <img class="button" id="K" onmouseover="hover(id)" onclick="openui(id)" src="./Untitled-1_04.gif" style="position: relative; top: 51px; left: 96px;">
+        </div>
+
         <img id="line" src="./line.png">
         <img id="check" src="./v.png">
         <div id="ui1"></div>
