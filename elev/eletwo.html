@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		body {
+			text-align: center;
+			-ms-overflow-style: none;
+		}
+	
+
+		.click{
+			cursor: pointer;
+			background-color: black;
+			opacity: 0;
+		}
+
+	</style>
+	<title>Document</title>
+</head>
+
+<body>
+
+			<img src="https://github.com/meowljane/0928crime/blob/main/resource/but2.png?raw=true" class="item" usemap="#where">
+
+			<map name="where">
+	<area id="A" value="2층으로 이동하였습니다." class="click" onclick="onoff(this)" coords="149,113,65" shape="circle">
+    <area id="B" value="1층으로 이동하였습니다." class="click" onclick="onoff(this)" coords="149,296,64" shape="circle">
+    <area id="C" value="투표실로 이동하였습니다." class="click" onclick="onoff(this)"  coords="146,478,62" shape="circle">
+	<p>2번 엘베</p>
+			</map>
+
+	<script type="text/javascript">
+
+		function onoff(id) {
+			window.parent.postMessage(
+						{
+							type: $(id).attr( 'value' ),
+						},
+						"*"
+					);
+			
+		}
+
+	</script>
+</body>
+
+</html>
